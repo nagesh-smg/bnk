@@ -1,0 +1,12 @@
+npm install
+npm audit fix
+npm run build
+npm start
+
+npx vite build
+npx esbuild server/index.ts --platform=node --packages=external --outfile=dist/server.js
+
+netstat -ano | findstr :3000
+taskkill /PID 1468 /F
+
+C:\Users\LENOVO\Downloads\replitweb>npx vite

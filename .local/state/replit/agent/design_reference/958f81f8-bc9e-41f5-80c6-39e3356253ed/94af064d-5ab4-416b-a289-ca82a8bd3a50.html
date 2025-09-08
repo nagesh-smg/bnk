@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Banking - Professional Banking Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bank-blue': '#1e40af',
+                        'bank-navy': '#0f172a',
+                        'bank-gray': '#64748b',
+                        'bank-light': '#e2e8f0',
+                        'bank-green': '#059669',
+                        'bank-red': '#dc2626'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-inter bg-white">
+
+    <!-- @COMPONENT: CustomerNavigation [logo, menu items, login button] -->
+    <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-university text-bank-blue text-2xl mr-3"></i>
+                        <span class="text-2xl font-bold text-bank-navy">Unity Banking</span>
+                    </div>
+                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="#" class="text-bank-navy hover:text-bank-blue px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="#schemes" class="text-bank-gray hover:text-bank-blue px-3 py-2 text-sm font-medium transition-colors">Schemes</a>
+                        <a href="#services" class="text-bank-gray hover:text-bank-blue px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="#about" class="text-bank-gray hover:text-bank-blue px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="#contact" class="text-bank-gray hover:text-bank-blue px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button data-event="click:openAdminLogin" class="bg-bank-blue text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                        Admin Login
+                    </button>
+                    <button class="bg-bank-green text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors">
+                        Customer Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: CustomerNavigation -->
+
+    <!-- @COMPONENT: HeroSection [banner with key messaging] -->
+    <section class="relative bg-gradient-to-br from-bank-blue to-bank-navy text-white py-20">
+        <!-- Professional banking hero background image -->
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6">Your Trusted Banking Partner</h1>
+                    <p class="text-xl text-blue-100 mb-8">Secure banking solutions with competitive interest rates and professional service for all your financial needs.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-bank-green text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                            Open Account
+                        </button>
+                        <button class="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-bank-blue transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="hidden lg:block">
+                    <!-- Modern banking illustration -->
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Modern banking and financial services" 
+                         class="rounded-xl shadow-2xl" data-mock="true" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- @COMPONENT: QuickStats [key metrics display] -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-bank-blue mb-2" data-bind="stats.customers">50,000+</div>
+                    <div class="text-bank-gray font-medium">Satisfied Customers</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-bank-blue mb-2" data-bind="stats.branches">100+</div>
+                    <div class="text-bank-gray font-medium">Branch Locations</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-bank-blue mb-2" data-bind="stats.experience">25+</div>
+                    <div class="text-bank-gray font-medium">Years Experience</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-bank-blue mb-2" data-bind="stats.rating">4.8/5</div>
+                    <div class="text-bank-gray font-medium">Customer Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: QuickStats -->
+
+    <!-- @COMPONENT: SchemesSection [deposit and loan schemes] -->
+    <section id="schemes" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-bank-navy mb-4">Our Banking Schemes</h2>
+                <p class="text-xl text-bank-gray max-w-3xl mx-auto">Choose from our comprehensive range of deposit and loan schemes designed to meet your financial goals.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <!-- Deposit Schemes -->
+                <div>
+                    <div class="flex items-center mb-8">
+                        <i class="fas fa-piggy-bank text-bank-green text-3xl mr-4"></i>
+                        <h3 class="text-2xl font-bold text-bank-navy">Deposit Schemes</h3>
+                    </div>
+                    
+                    <!-- @MAP: depositSchemes.map(scheme => ( -->
+                    <div class="bg-gray-50 rounded-xl p-6 mb-6 border border-gray-200 hover:shadow-lg transition-shadow" data-mock="true">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-semibold text-bank-navy" data-bind="scheme.name">Fixed Deposit Plus</h4>
+                            <span class="bg-bank-green text-white px-3 py-1 rounded-full text-sm font-medium" data-bind="scheme.rate">7.25% p.a.</span>
+                        </div>
+                        <p class="text-bank-gray mb-4" data-bind="scheme.description">Secure your future with guaranteed returns on your investment.</p>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <span class="text-bank-gray">Min Amount:</span>
+                                <span class="font-semibold text-bank-navy ml-2" data-bind="scheme.minAmount">₹10,000</span>
+                            </div>
+                            <div>
+                                <span class="text-bank-gray">Tenure:</span>
+                                <span class="font-semibold text-bank-navy ml-2" data-bind="scheme.tenure">1-5 years</span>
+                            </div>
+                        </div>
+                        <button class="mt-4 w-full bg-bank-blue text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                            Apply Now
+                        </button>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-xl p-6 mb-6 border border-gray-200 hover:shadow-lg transition-shadow" data-mock="true">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-semibold text-bank-navy" data-bind="scheme.name">Recurring Deposit</h4>
+                            <span class="bg-bank-green text-white px-3 py-1 rounded-full text-sm font-medium" data-bind="scheme.rate">6.75% p.a.</span>
+                        </div>
+                        <p class="text-bank-gray mb-4" data-bind="scheme.description">Build wealth systematically with monthly deposits and compound interest.</p>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <span class="text-bank-gray">Min Amount:</span>
+                                <span class="font-semibold text-bank-navy ml-2" data-bind="scheme.minAmount">₹500/month</span>
+                            </div>
+                            <div>
+                                <span class="text-bank-gray">Tenure:</span>
+                                <span class="font-semibold text-bank-navy ml-2" data-bind="scheme.tenure">1-10 years</span>
+                            </div>
+                        </div>
+                        <button class="mt-4 w-full bg-bank-blue text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                            Apply Now
+                        </button>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+
+                <!-- Loan Schemes -->
+                <div>
+                    <div class="flex items-center mb-8">
+                        <i class="fas fa-hand-holding-usd text-bank-blue text-3xl mr-4"></i>
+                        <h3 class="text-2xl font-bold text-bank-navy">Loan Schemes</h3>
+                    </div>
+
+                    <!-- @MAP: loanSchemes.map(scheme => ( -->
+                    <div class="bg-gray-50 rounded-xl p-6 mb-6 border border-gray-200 hover:shadow-lg transition-shadow" data-mock="true">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-semibold text-bank-navy" data-bind="scheme.name">Home Loan</h4>
+                            <span class="bg-bank-blue text-white px-3 py-1 rounded-full text-sm font-medium" data-bind="scheme.rate">8.5% p.a.</span>
+                        </div>
+                        <p class="text-bank-gray mb-4" data-bind="scheme.description">Make your dream home a reality with our competitive home loan rates.</p>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <span class="text-bank-gray">Max Amount:</span>
+                                <span class="font-semibold text-bank-navy ml-2" data-bind="scheme.maxAmount">₹2 Crore</span>
+                            </div>
+                            <div>
+                                <span class="text-bank-gray">Tenure:</span>
+                                <span class="font-semibold text-bank-navy ml-2" data-bind="scheme.tenure">Up to 30 years</span>
+                            </div>
+                        </div>
+                        <button class="mt-4 w-full bg-bank-green text-white py-2 rounded-lg font-medium hover:bg-green-700 transition-colors">
+                            Apply Now
+                        </button>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-xl p-6 mb-6 border border-gray-200 hover:shadow-lg transition-shadow" data-mock="true">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-semibold text-bank-navy" data-bind="scheme.name">Personal Loan</h4>
+                            <span class="bg-bank-blue text-white px-3 py-1 rounded-full text-sm font-medium" data-bind="scheme.rate">12% p.a.</span>
+                        </div>
+                        <p class="text-bank-gray mb-4" data-bind="scheme.description">Quick approval personal loans for all your immediate financial needs.</p>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <span class="text-bank-gray">Max Amount:</span>
+                                <span class="font-semibold text-bank-navy ml-2" data-bind="scheme.maxAmount">₹25 Lakh</span>
+                            </div>
+                            <div>
+                                <span class="text-bank-gray">Tenure:</span>
+                                <span class="font-semibold text-bank-navy ml-2" data-bind="scheme.tenure">1-7 years</span>
+                            </div>
+                        </div>
+                        <button class="mt-4 w-full bg-bank-green text-white py-2 rounded-lg font-medium hover:bg-green-700 transition-colors">
+                            Apply Now
+                        </button>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: SchemesSection -->
+
+    <!-- @COMPONENT: NewsSection [sliding carousel for announcements] -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-bank-navy mb-4">Latest News & Updates</h2>
+                <p class="text-xl text-bank-gray">Stay informed about our latest offerings and important announcements.</p>
+            </div>
+
+            <div class="relative">
+                <div class="overflow-hidden">
+                    <div class="flex transition-transform duration-500 ease-in-out" id="newsCarousel" data-mock="true">
+                        <!-- @MAP: newsItems.map(news => ( -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                            <div class="bg-white rounded-xl shadow-md p-6 h-full">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-newspaper text-bank-blue text-xl mr-3"></i>
+                                    <span class="text-sm text-bank-gray font-medium" data-bind="news.date">December 15, 2023</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-bank-navy mb-3" data-bind="news.title">New Digital Banking Features Launched</h3>
+                                <p class="text-bank-gray mb-4" data-bind="news.excerpt">Experience enhanced online banking with our latest digital features including instant transfers and mobile check deposits.</p>
+                                <a href="#" class="text-bank-blue font-medium hover:text-blue-700 transition-colors">Read More →</a>
+                            </div>
+                        </div>
+
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                            <div class="bg-white rounded-xl shadow-md p-6 h-full">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-chart-line text-bank-green text-xl mr-3"></i>
+                                    <span class="text-sm text-bank-gray font-medium" data-bind="news.date">December 12, 2023</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-bank-navy mb-3" data-bind="news.title">Interest Rates Updated</h3>
+                                <p class="text-bank-gray mb-4" data-bind="news.excerpt">We've revised our deposit and loan interest rates to offer you better returns and competitive borrowing costs.</p>
+                                <a href="#" class="text-bank-blue font-medium hover:text-blue-700 transition-colors">Read More →</a>
+                            </div>
+                        </div>
+
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                            <div class="bg-white rounded-xl shadow-md p-6 h-full">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-award text-bank-blue text-xl mr-3"></i>
+                                    <span class="text-sm text-bank-gray font-medium" data-bind="news.date">December 10, 2023</span>
+                                </div>
+                                <h3 class="text-xl font-semibold text-bank-navy mb-3" data-bind="news.title">Award for Best Customer Service</h3>
+                                <p class="text-bank-gray mb-4" data-bind="news.excerpt">Unity Banking receives recognition for outstanding customer service and innovative banking solutions.</p>
+                                <a href="#" class="text-bank-blue font-medium hover:text-blue-700 transition-colors">Read More →</a>
+                            </div>
+                        </div>
+                        <!-- @END_MAP )) -->
+                    </div>
+                </div>
+
+                <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors" data-event="click:previousNews">
+                    <i class="fas fa-chevron-left text-bank-blue"></i>
+                </button>
+                <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors" data-event="click:nextNews">
+                    <i class="fas fa-chevron-right text-bank-blue"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: NewsSection -->
+
+    <!-- @COMPONENT: AdminLoginModal [authentication interface] -->
+    <div id="adminLoginModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden" data-mock="true">
+        <div class="bg-white rounded-xl shadow-2xl p-8 w-full max-w-md mx-4">
+            <div class="text-center mb-6">
+                <i class="fas fa-user-shield text-bank-blue text-4xl mb-4"></i>
+                <h2 class="text-2xl font-bold text-bank-navy mb-2">Admin Login</h2>
+                <p class="text-bank-gray">Access the administrative panel</p>
+            </div>
+
+            <form data-event="submit:handleAdminLogin" data-implementation="Should validate credentials and redirect to admin panel">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-bank-navy mb-2">Username</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-bank-blue focus:border-transparent" 
+                           placeholder="Enter username" data-bind="credentials.username" data-mock="true">
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-bank-navy mb-2">Password</label>
+                    <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-bank-blue focus:border-transparent" 
+                           placeholder="Enter password" data-bind="credentials.password" data-mock="true">
+                </div>
+
+                <button type="submit" class="w-full bg-bank-blue text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors mb-4">
+                    Login
+                </button>
+
+                <button type="button" class="w-full text-bank-gray hover:text-bank-navy transition-colors" data-event="click:closeAdminLogin">
+                    Cancel
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: AdminLoginModal -->
+
+    <!-- @COMPONENT: AdminDashboard [comprehensive admin interface] -->
+    <div id="adminDashboard" class="min-h-screen bg-gray-100 hidden" data-mock="true">
+        <!-- Admin Navigation -->
+        <nav class="bg-bank-navy text-white shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <i class="fas fa-university text-2xl mr-3"></i>
+                        <span class="text-xl font-bold">Unity Banking - Admin</span>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <span class="text-sm" data-bind="admin.name">Welcome, Admin</span>
+                        <button class="bg-bank-red text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-700 transition-colors" data-event="click:adminLogout">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="flex">
+            <!-- Admin Sidebar -->
+            <div class="w-64 bg-white shadow-lg h-screen overflow-y-auto">
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold text-bank-navy mb-4">Admin Panel</h3>
+                    <nav class="space-y-2">
+                        <a href="#" class="flex items-center px-4 py-3 text-bank-gray hover:bg-bank-light hover:text-bank-blue rounded-lg transition-colors" data-event="click:showDashboard">
+                            <i class="fas fa-tachometer-alt mr-3"></i>
+                            Dashboard
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-3 text-bank-gray hover:bg-bank-light hover:text-bank-blue rounded-lg transition-colors" data-event="click:showSchemeManagement">
+                            <i class="fas fa-coins mr-3"></i>
+                            Scheme Management
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-3 text-bank-gray hover:bg-bank-light hover:text-bank-blue rounded-lg transition-colors" data-event="click:showInterestRates">
+                            <i class="fas fa-percent mr-3"></i>
+                            Interest Rates
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-3 text-bank-gray hover:bg-bank-light hover:text-bank-blue rounded-lg transition-colors" data-event="click:showNewsManagement">
+                            <i class="fas fa-newspaper mr-3"></i>
+                            News Management
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-3 text-bank-gray hover:bg-bank-light hover:text-bank-blue rounded-lg transition-colors" data-event="click:showDocumentManagement">
+                            <i class="fas fa-file-alt mr-3"></i>
+                            Documents
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-3 text-bank-gray hover:bg-bank-light hover:text-bank-blue rounded-lg transition-colors" data-event="click:showBrandingSettings">
+                            <i class="fas fa-palette mr-3"></i>
+                            Branding
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Admin Content Area -->
+            <div class="flex-1 p-8">
+                <!-- Dashboard Overview -->
+                <div id="dashboardContent" class="space-y-8">
+                    <div>
+                        <h1 class="text-3xl font-bold text-bank-navy mb-2">Dashboard Overview</h1>
+                        <p class="text-bank-gray">Manage your banking website and schemes</p>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-xl p-6 shadow-md">
+                            <div class="flex items-center">
+                                <i class="fas fa-piggy-bank text-bank-green text-2xl mr-4"></i>
+                                <div>
+                                    <div class="text-2xl font-bold text-bank-navy" data-bind="stats.totalDeposits">₹12.5 Cr</div>
+                                    <div class="text-sm text-bank-gray">Total Deposits</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-md">
+                            <div class="flex items-center">
+                                <i class="fas fa-hand-holding-usd text-bank-blue text-2xl mr-4"></i>
+                                <div>
+                                    <div class="text-2xl font-bold text-bank-navy" data-bind="stats.activeLoans">₹8.2 Cr</div>
+                                    <div class="text-sm text-bank-gray">Active Loans</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-md">
+                            <div class="flex items-center">
+                                <i class="fas fa-users text-bank-green text-2xl mr-4"></i>
+                                <div>
+                                    <div class="text-2xl font-bold text-bank-navy" data-bind="stats.totalCustomers">2,847</div>
+                                    <div class="text-sm text-bank-gray">Total Customers</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-md">
+                            <div class="flex items-center">
+                                <i class="fas fa-chart-line text-bank-blue text-2xl mr-4"></i>
+                                <div>
+                                    <div class="text-2xl font-bold text-bank-navy" data-bind="stats.monthlyGrowth">+15.3%</div>
+                                    <div class="text-sm text-bank-gray">Monthly Growth</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scheme Management Panel -->
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold text-bank-navy">Scheme Management</h2>
+                            <button class="bg-bank-blue text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors" data-event="click:addNewScheme">
+                                <i class="fas fa-plus mr-2"></i>Add New Scheme
+                            </button>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="text-left py-3 px-4 font-semibold text-bank-navy">Scheme Name</th>
+                                        <th class="text-left py-3 px-4 font-semibold text-bank-navy">Type</th>
+                                        <th class="text-left py-3 px-4 font-semibold text-bank-navy">Interest Rate</th>
+                                        <th class="text-left py-3 px-4 font-semibold text-bank-navy">Status</th>
+                                        <th class="text-left py-3 px-4 font-semibold text-bank-navy">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200" data-mock="true">
+                                    <!-- @MAP: schemes.map(scheme => ( -->
+                                    <tr>
+                                        <td class="py-4 px-4 font-medium text-bank-navy" data-bind="scheme.name">Fixed Deposit Plus</td>
+                                        <td class="py-4 px-4 text-bank-gray" data-bind="scheme.type">Deposit</td>
+                                        <td class="py-4 px-4 text-bank-gray" data-bind="scheme.rate">7.25% p.a.</td>
+                                        <td class="py-4 px-4">
+                                            <span class="bg-bank-green text-white px-2 py-1 rounded-full text-xs font-medium" data-bind="scheme.status">Active</span>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="flex space-x-2">
+                                                <button class="text-bank-blue hover:text-blue-700" data-event="click:editScheme" data-implementation="Should open edit form">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="text-bank-red hover:text-red-700" data-event="click:deleteScheme" data-implementation="Should confirm before deletion">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 px-4 font-medium text-bank-navy" data-bind="scheme.name">Home Loan</td>
+                                        <td class="py-4 px-4 text-bank-gray" data-bind="scheme.type">Loan</td>
+                                        <td class="py-4 px-4 text-bank-gray" data-bind="scheme.rate">8.5% p.a.</td>
+                                        <td class="py-4 px-4">
+                                            <span class="bg-bank-green text-white px-2 py-1 rounded-full text-xs font-medium" data-bind="scheme.status">Active</span>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="flex space-x-2">
+                                                <button class="text-bank-blue hover:text-blue-700" data-event="click:editScheme">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="text-bank-red hover:text-red-700" data-event="click:deleteScheme">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- @END_MAP )) -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Interest Rate Management -->
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <h2 class="text-2xl font-bold text-bank-navy mb-6">Interest Rate Management</h2>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="text-lg font-semibold text-bank-navy mb-4">Deposit Rates</h3>
+                                <div class="space-y-4">
+                                    <!-- @MAP: depositRates.map(rate => ( -->
+                                    <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg" data-mock="true">
+                                        <span class="font-medium text-bank-navy" data-bind="rate.scheme">Fixed Deposit</span>
+                                        <div class="flex items-center space-x-2">
+                                            <input type="number" class="w-20 px-3 py-1 border border-gray-300 rounded text-sm" 
+                                                   data-bind="rate.value" value="7.25" data-implementation="Should update rates in real-time">
+                                            <span class="text-sm text-bank-gray">% p.a.</span>
+                                            <button class="bg-bank-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-700 transition-colors" data-event="click:updateRate">
+                                                Update
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- @END_MAP )) -->
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-bank-navy mb-4">Loan Rates</h3>
+                                <div class="space-y-4">
+                                    <!-- @MAP: loanRates.map(rate => ( -->
+                                    <div class="flex justify-between items-center p-4 bg-gray-50 rounded-lg" data-mock="true">
+                                        <span class="font-medium text-bank-navy" data-bind="rate.scheme">Home Loan</span>
+                                        <div class="flex items-center space-x-2">
+                                            <input type="number" class="w-20 px-3 py-1 border border-gray-300 rounded text-sm" 
+                                                   data-bind="rate.value" value="8.5" data-implementation="Should update rates in real-time">
+                                            <span class="text-sm text-bank-gray">% p.a.</span>
+                                            <button class="bg-bank-blue text-white px-2 py-1 rounded text-xs hover:bg-blue-700 transition-colors" data-event="click:updateRate">
+                                                Update
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- @END_MAP )) -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Document Management -->
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold text-bank-navy">Document Management</h2>
+                            <button class="bg-bank-blue text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors" data-event="click:uploadDocument">
+                                <i class="fas fa-upload mr-2"></i>Upload Document
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- @MAP: documents.map(doc => ( -->
+                            <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow" data-mock="true">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-file-pdf text-bank-red text-2xl mr-3"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-bank-navy" data-bind="doc.name">Annual Report 2023</h4>
+                                        <p class="text-sm text-bank-gray" data-bind="doc.date">Dec 15, 2023</p>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-bank-gray" data-bind="doc.size">2.5 MB</span>
+                                    <div class="flex space-x-2">
+                                        <button class="text-bank-blue hover:text-blue-700" data-event="click:editDocument">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="text-bank-red hover:text-red-700" data-event="click:deleteDocument">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- @END_MAP )) -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: AdminDashboard -->
+
+    <!-- @COMPONENT: Footer [company information and links] -->
+    <footer class="bg-bank-navy text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-university text-2xl mr-3"></i>
+                        <span class="text-xl font-bold">Unity Banking</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">Your trusted partner for all banking and financial services with over 25 years of excellence.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Deposit Schemes</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Loan Services</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Online Banking</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Mobile Banking</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">FAQs</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>+91-1234567890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>info@unitybanking.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Mumbai, India</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2023 Unity Banking. All rights reserved. Licensed and regulated banking services.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // TODO: Implement business logic, API calls, and state management
+        (function() {
+            // Modal controls
+            const adminLoginModal = document.getElementById('adminLoginModal');
+            const adminDashboard = document.getElementById('adminDashboard');
+
+            // Show admin login modal
+            document.addEventListener('click', function(e) {
+                if (e.target.matches('[data-event="click:openAdminLogin"]')) {
+                    adminLoginModal.classList.remove('hidden');
+                }
+            });
+
+            // Close admin login modal
+            document.addEventListener('click', function(e) {
+                if (e.target.matches('[data-event="click:closeAdminLogin"]') || e.target === adminLoginModal) {
+                    adminLoginModal.classList.add('hidden');
+                }
+            });
+
+            // Handle admin login (mock functionality)
+            document.addEventListener('submit', function(e) {
+                if (e.target.matches('[data-event="submit:handleAdminLogin"]')) {
+                    e.preventDefault();
+                    // TODO: Implement actual authentication
+                    adminLoginModal.classList.add('hidden');
+                    document.body.classList.add('overflow-hidden');
+                    adminDashboard.classList.remove('hidden');
+                }
+            });
+
+            // Handle admin logout
+            document.addEventListener('click', function(e) {
+                if (e.target.matches('[data-event="click:adminLogout"]')) {
+                    adminDashboard.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                }
+            });
+
+            // News carousel navigation (basic implementation)
+            let currentSlide = 0;
+            const carousel = document.getElementById('newsCarousel');
+            const slides = carousel?.children;
+
+            document.addEventListener('click', function(e) {
+                if (e.target.matches('[data-event="click:nextNews"]') || e.target.closest('[data-event="click:nextNews"]')) {
+                    if (slides && currentSlide < slides.length - 1) {
+                        currentSlide++;
+                        updateCarousel();
+                    }
+                }
+                if (e.target.matches('[data-event="click:previousNews"]') || e.target.closest('[data-event="click:previousNews"]')) {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateCarousel();
+                    }
+                }
+            });
+
+            function updateCarousel() {
+                if (carousel) {
+                    carousel.style.transform = `translateX(-${currentSlide * 33.333}%)`;
+                }
+            }
+
+            // Auto-slide news carousel
+            setInterval(() => {
+                if (slides && currentSlide < slides.length - 1) {
+                    currentSlide++;
+                } else {
+                    currentSlide = 0;
+                }
+                updateCarousel();
+            }, 5000);
+        })();
+    </script>
+</body>
+</html>
