@@ -1,0 +1,8 @@
+Add a new page to display branch information and link it in the navigation
+
+Adds a new route for the branches page, integrates it into the customer navigation, and creates a dedicated page component to display branch details.
+
+Replit-Commit-Author: Agent
+Replit-Commit-Session-Id: 958f81f8-bc9e-41f5-80c6-39e3356253ed
+Replit-Commit-Checkpoint-Type: full_checkpoint
+Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/a2a75e7d-9ec2-4f72-959a-7c0e91f9d239/958f81f8-bc9e-41f5-80c6-39e3356253ed/ckAD2Kn
