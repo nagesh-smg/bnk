@@ -16,6 +16,8 @@ export default defineConfig({
         ]
       : []),
   ],
+  // Base path for GitHub Pages repo nagesh-smg/bnk
+  base: "/bnk/",
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -25,7 +27,8 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname, "client"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    // Output directly to /docs for GitHub Pages
+    outDir: path.resolve(import.meta.dirname, "docs"),
     emptyOutDir: true,
   },
   server: {
